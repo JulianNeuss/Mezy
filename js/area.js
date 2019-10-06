@@ -34,12 +34,8 @@ Vue.component('areazone', {
                     <v-col v-for="career in careers" :key="career"  cols="12" md="3" >
                         <v-card :elevation="21" height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
                             
-                            <v-img :src="career.src" height="200" class="orange--text">
-                                   <v-card-title class="align-end fill-height">
-                                         <span>{{career.name}}</span>
-                                   </v-card-title>
-                            </v-img>
-
+                            <v-img :src="career.src" height="170" class="orange--text"> </v-img>
+                            <h4  align="center"> {{career.name}}</h4>
                         </v-card>
                     </v-col>
                 </v-row>
