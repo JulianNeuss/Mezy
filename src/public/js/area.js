@@ -1,6 +1,6 @@
 Vue.component('areazone', {
     template: `<div>
-                <v-btn icon href="index.html" >
+                <v-btn icon href="../index.html" >
                     <v-icon large> arrow_back_ios </v-icon>
                 </v-btn>
 
@@ -20,14 +20,14 @@ Vue.component('areazone', {
     data() {
         return {
             careers: [
-                { name: 'Software Engineer', src:'../../assets/software.jpg'},
-                { name: 'Mechanical Engineer', src:'../../assets/mechanical.jpeg'},
-                { name: 'Industrial Engineer', src:'../../assets/cds-industrial-engineering.jpg'},
-                { name: 'Navy Engineer', src:'../../assets/navy.jpg'},
-                { name: 'Chemical Engineer', src:'../../assets/chemical.jpg'},
-                { name: 'Civil Engineer', src:'../../assets/civil.jpg'},
-                { name: 'Bio Engineer', src:'../../assets/bio.png'},
-                { name: 'Oil Engineer', src:'../../assets/petroleo.jpg'}
+                { name: 'Software Engineer', src:'../assets/software.jpg'},
+                { name: 'Mechanical Engineer', src:'../assets/mechanical.jpeg'},
+                { name: 'Industrial Engineer', src:'../assets/cds-industrial-engineering.jpg'},
+                { name: 'Navy Engineer', src:'../assets/navy.jpg'},
+                { name: 'Chemical Engineer', src:'../assets/chemical.jpg'},
+                { name: 'Civil Engineer', src:'../assets/civil.jpg'},
+                { name: 'Bio Engineer', src:'../assets/bio.png'},
+                { name: 'Oil Engineer', src:'../assets/petroleo.jpg'}
             ]
         }
     }

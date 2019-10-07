@@ -52,22 +52,22 @@ Vue.component('countryzone', {
         return {
             show: false,
             flags: [
-                { country: 'France', src:'../../assets/france.png'},
-                { country: 'Italy', src:'../../assets/italy.svg'},
-                { country: 'USA', src:'../../assets/USA.png'},
-                { country: 'China', src:'../../assets/china.png'},
-                { country: 'Australia', src:'../../assets/australia.svg'},
-                { country: 'Japan', src:'../../assets/japan.svg'},
-                { country: 'Germany', src:'../../assets/germany.svg'},
-                { country: 'United Kingdom', src:'../../assets/UK.png'}
+                { country: 'France', src:'../assets/france.png'},
+                { country: 'Italy', src:'../assets/italy.svg'},
+                { country: 'USA', src:'../assets/USA.png'},
+                { country: 'China', src:'../assets/china.png'},
+                { country: 'Australia', src:'../assets/australia.svg'},
+                { country: 'Japan', src:'../assets/japan.svg'},
+                { country: 'Germany', src:'../assets/germany.svg'},
+                { country: 'United Kingdom', src:'../assets/UK.png'}
             ],
             moreflags: [
-                { country: 'Netherland', src:'../../assets/netherland.png'},
-                { country: 'South Korea', src:'../../assets/korea.png'},
-                { country: 'Denmark', src:'../../assets/denmark.png'},
-                { country: 'Chile', src:'../../assets/chile.png'},
-                { country: 'Brazil', src:'../../assets/brazil.png'},
-                { country: 'Belgium', src:'../../assets/belgium.png'},
+                { country: 'Netherland', src:'../assets/netherland.png'},
+                { country: 'South Korea', src:'../assets/korea.png'},
+                { country: 'Denmark', src:'../assets/denmark.png'},
+                { country: 'Chile', src:'../assets/chile.png'},
+                { country: 'Brazil', src:'../assets/brazil.png'},
+                { country: 'Belgium', src:'../assets/belgium.png'},
             ]
         }
     }

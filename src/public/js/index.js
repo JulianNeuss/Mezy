@@ -1,7 +1,7 @@
 Vue.component('parallax1', {
     template:
         `<section>
-                <v-parallax id="content" src="../../assets/plane1.jpg" height="600">
+                <v-parallax id="content" src="assets/plane1.jpg" height="600">
                     <v-layout
                         column
                         align-center
@@ -16,7 +16,7 @@ Vue.component('parallax1', {
                         color="blue lighten-2"
                         dark
                         large
-                        href="../html/area.html"
+                        href="html/area.html"
                     >
                     Get Started
                 </v-btn>
@@ -98,7 +98,7 @@ Vue.component('howitworks', {
 Vue.component('parallax2', {
     template:
         `<section>
-                <v-parallax src="../../assets/section.jpg" height="380">
+                <v-parallax src="assets/section.jpg" height="380">
                     <v-layout column align-center justify-center>
                 <div class="headline white--text mb-4 text-center">Studying abroad has never been easier</div>
                 <em>Start your application today</em>
@@ -107,7 +107,7 @@ Vue.component('parallax2', {
                 color="blue lighten-2"
                 dark
                 large
-                href="../html/area.html"
+                href="html/area.html"
                     >
                     Get Started
                 </v-btn>
