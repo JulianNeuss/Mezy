@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url("../assets/plane1.jpg");
+    background: url("../src/plane1.jpg");
     background-size: cover;
     font-family: sans-serif;
     background-repeat: no-repeat;
@@ -70,13 +70,13 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    background: rgba(100,181,246,0.7);
+    background: rgba(94,53,177,0.7);
     font-size: 18px;
     border-radius: 20px;
 }
 .loginbox input[type="submit"]:hover{
     cursor: pointer;
-    background: rgba(100,181,246,1);
+    background: rgba(94,53,177,1);
     color: #000;
 }
 .loginbox a{
@@ -88,5 +88,5 @@ h1{
 
 .loginbox a:hover{
     cursor: pointer;
-    color: rgba(100,181,246,1);
+    color: rgba(94,53,177,1);
 }
