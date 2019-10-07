@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url("../src/plane1.jpg");
+    background: url("../../assets/plane1.jpg");
     background-size: cover;
     font-family: sans-serif;
     background-repeat: no-repeat;
