@@ -1,27 +1,3 @@
-Vue.component('toolbar', {
-    template:
-        `<v-toolbar color="white" dark  flat >
-                      <!--  <v-btn color="white" depressed  href="index.html" >
-
-                        </v-btn> -->
-                        <v-spacer></v-spacer> <!-- deja espacio entre el search y boton de  notificaciones y settings -->
-
-
-                        <v-btn text color="black">
-                            HOW IT WORKS
-                        </v-btn>
-                        <v-btn text color="black">
-                            ABOUT US
-                        </v-btn>
-                        <v-btn text color="black">
-                            CONTACT US
-                        </v-btn>
-                        
-            </v-toolbar>`,
-
-})
-
-
 Vue.component('countryzone', {
     template: `<div>
                 <v-btn icon href="area.html" >
