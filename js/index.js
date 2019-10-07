@@ -38,7 +38,7 @@ Vue.component('parallax1', {
                         color="blue lighten-2"
                         dark
                         large
-                        href="/pre-made-themes"
+                        href="../html/area.html"
                     >
                     Get Started
                 </v-btn>
@@ -129,7 +129,7 @@ Vue.component('parallax2', {
                 color="blue lighten-2"
                 dark
                 large
-                href="/pre-made-themes"
+                href="../html/area.html"
                     >
                     Get Started
                 </v-btn>
