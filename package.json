@@ -1,0 +1,26 @@
+{
+  "name": "mezy",
+  "version": "1.0.0",
+  "description": "Ingenieria de Software",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "mezy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianNeuss/Mezy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JulianNeuss/Mezy/issues"
+  },
+  "homepage": "https://github.com/JulianNeuss/Mezy#readme"
+}
