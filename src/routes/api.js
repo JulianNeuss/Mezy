@@ -21,8 +21,8 @@ router.put('/course/:id', function(req,res) {
 
 });
 
-// univesidades de un pais y una carrera.
-router.get('/uni/:id_country/:id_career', function(req,res) {
+// univesidades de un pais.
+router.get('/uni/:id_country', function(req,res) {
 
 });
 
