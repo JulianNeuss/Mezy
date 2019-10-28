@@ -15,12 +15,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
-// app.use('/tasks', require('./routes/tasks'));
+app.use('/spi', require('./routes/api'));
 
 // Static files
 app.use(express.static(__dirname + '/public'));
 
 // Server is listening
-app.listen(app.get('port'), () => {
+app.listen(process.env.port || app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 })
