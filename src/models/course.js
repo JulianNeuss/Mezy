@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var course = new Schema({
+    _id: mongoose.Types.ObjectId,
     uni: String,
     carrera: String,
     materia_externa: String,
@@ -9,3 +10,4 @@ var course = new Schema({
     creditos_electiva: Number,
     creditos_seminario: Number,
 });
+

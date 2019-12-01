@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const mongoose = require('mongoose');const bodyParser = require('body-parser');
 
 const app = express();
 mongoose.connect('mongodb://165.22.41.30:27017/mezy-db')
@@ -16,8 +15,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.json()); 
 
+app.get('/', (req,res) => {
+    res.send('Hello World');
+});
+
 // Routes
-// app.use('/api', require('./routes/api'));
+app.use('/api', require('./routes/api'));
 
 // Static files
 app.use(express.static(__dirname + '/public'));
