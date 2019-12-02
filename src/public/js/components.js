@@ -73,7 +73,11 @@ Vue.component('countryzone', {
                 { country: 'Italy', src:'../assets/italy.svg', id:18},
                 { country: 'Panama', src:'../assets/UK.png', id:23},
                 { country: 'Portugal', src:'../assets/UK.png', id:24},
-                { country: 'United Kingdom', src:'../assets/UK.png', id:25}
+                { country: 'UnitedKingdom', src:'../assets/UK.png', id:25},
+                { country: 'Singapore', src:'../assets/UK.png', id:26},
+                { country: 'Sweden', src:'../assets/UK.png', id:27},
+                { country: 'Czech Republic', src:'../assets/UK.png', id:28},
+
             ]
         }
     },
