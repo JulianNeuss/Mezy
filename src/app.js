@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.json()); 
 
 app.get('/', (req,res) => {
-    res.send('Hello World');
+    res.sendFile(index.html);
 });
 
 // Routes
