@@ -48,7 +48,7 @@ Vue.component('countryzone', {
                 
              
             </div>`,
-    data() {
+    data(){
         return {
             show: false,
             flags: [
@@ -83,8 +83,17 @@ Vue.component('countryzone', {
                 { country: 'Sweden', src:'../assets/sweden.png', id:27},
                 { country: 'Czech Republic', src:'../assets/czechRepublic.png', id:28},
 
-            ]
+            ],
+            countries: [ ]
         }
+    },
+    mounted: function() {
+        fetch('http://localhost:3000/api/countries').then( r => {
+            console.log(r.json());
+            for(let i of r.result){
+                this.countries.push({id: i.id, name: i.name});
+            }
+        })
     },
 
     methods:{
@@ -99,12 +108,11 @@ Vue.component('countryzone', {
         }
     }
     
-})
+}),
 
 
 
-
-,Vue.component('areazone', {
+    Vue.component('areazone', {
     template: `<div>
                 <v-btn icon href="../index.html" >
                     <v-icon large> arrow_back_ios </v-icon>
@@ -137,9 +145,10 @@ Vue.component('countryzone', {
             ]
         }
     }
-})
-,
-Vue.component('university', {
+}),
+
+
+    Vue.component('university', {
     template: `<div>
                 <v-btn icon href="country.html" >
                     <v-icon large> arrow_back_ios </v-icon>
@@ -172,6 +181,68 @@ Vue.component('university', {
             ]
         }
     }
+}),
+
+
+
+    Vue.component('showsubjects', {
+
+        template: `<div>
+                <v-btn icon href="university.html" >
+                    <v-icon large> arrow_back_ios </v-icon>
+                </v-btn>
+
+                <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSE</p>
+                <br/>
+               
+                
+                <v-simple-table fixed-header height="500px">
+                    <template v-slot:default>
+                      <thead>
+                        <tr>
+                          <th class="text-center">ITBA's COURSE</th>
+                          <th class="text-center">FOREING EQUIVALENT COURSE</th>
+                          <th class="text-center">ACCEPTANCE STATUS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="countrys in flags" :key="countrys.country">
+                          <td class="text-center">{{ countrys.country }}</td>
+                          <td class="text-center">{{ countrys.id }}</td>
+                          <td class="text-center">{{ countrys.algo }}</td>
+                        </tr>
+                      </tbody>
+                    </template>
+                 </v-simple-table> 
+  
+             
+            </div>`,
+
+
+        data() {
+        return {
+            show: false,
+            flags: [
+                { country: 'Germany', src:'../assets/germany.svg', id:1 , algo:'Hola'},
+                { country: 'Australia', src: '../assets/australia.svg', id:2, algo:'Hola'},
+                { country: 'Austria', src:'../assets/austria.png' , id:3 , algo:'Hola'},
+                { country: 'Belgium', src:'../assets/belgium.png', id:4, algo:'Hola'},
+                { country: 'Brazil', src:'../assets/brazil.png', id:5, algo:'Hola'},
+                { country: 'Chile', src:'../assets/chile.png', id:6, algo:'Hola'},
+                { country: 'China', src:'../assets/china.png', id:7, algo:'Hola'},
+                { country: 'Colombia', src: '../assets/colombia.png', id:8, algo:'Hola'},
+                { country: 'France', src:'../assets/france.png', id: 14, algo:'Hola'},
+                { country: 'Netherland', src:'../assets/netherland.png', id:15, algo:'Hola'},
+                { country: 'Indonesia', src: '../assets/indonesia.png', id:16, algo:'Hola'},
+                { country: 'Israel', src: '../assets/israel.png', id:17, algo:'Hola'},
+                { country: 'Italy', src:'../assets/italy.svg', id:18, algo:'Hola'},
+                { country: 'Malaysia', src:'../assets/malaysia.png', id:19, algo:'Hola'},
+                { country: 'Mexico', src:'../assets/mexico.png', id:20, algo:'Hola'},
+                { country: 'Norway', src:'../assets/norway.png', id:21, algo:'Hola'},
+            ]
+        }
+    }
+
 })
 
 
