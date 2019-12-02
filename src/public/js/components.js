@@ -8,13 +8,24 @@ Vue.component('countryzone', {
                 <br/>
                 <v-row>
                     <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3" >
-                        <v-card flat height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
+                        <v-card flat height="200" type="button" > 
                             
                             <v-img :src="flag.src" @click="fetch_country()" height="170"> </v-img>
                             <h4  align="center"> {{flag.country}}</h4>
                         </v-card>
                     </v-col>
                 </v-row>
+                
+                <!-- TODO: este es con la llamada a la api  
+                <v-row>
+                    <v-col v-for="country in countries" :key="country.name"  cols="12" md="3" >
+                        <v-card flat height="200" type="button" > 
+                            
+                            <v-img :src="country.src" @click="fetch_country()" height="170"> </v-img>
+                            <h4  align="center"> {{country.name}}</h4>
+                        </v-card>
+                    </v-col>
+                </v-row> -->
                 
                 <br/>
 
@@ -97,6 +108,7 @@ Vue.component('countryzone', {
             for(let i of myJson){
                 $vm.countries.push({id: i.id, name: i.name});
             }
+            console.log($vm.countries);
           });
     },
 
@@ -173,6 +185,7 @@ Vue.component('countryzone', {
     data() {
         return {
             show: false,
+            germanyUni: [ ],
             flags: [
                 { country: 'Wuhan University', src:'../assets/Wuhan.png'},
                 { country: 'Beijing Institute of T.', src:'../assets/Beijing_Institute_of_Technology.png'},
@@ -184,7 +197,20 @@ Vue.component('countryzone', {
                 { country: 'Tsinghua University', src:'../assets/Tsinghua University.png'}
             ]
         }
-    }
+    },
+
+        mounted: function() {
+            let $vm = this;
+            fetch('http://localhost:3000/api/uni/1').then(function(response) {
+                return response.json();
+            })
+                .then(function(myJson) {
+                    for(let i of myJson){
+                        $vm.germanyUni.push({id: i.id, name: i.name});
+                    }
+                    console.log($vm.germanyUni);
+                });
+        },
 }),
 
 
