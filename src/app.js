@@ -15,15 +15,15 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.json()); 
 
-app.get('/', (req,res) => {
-    res.sendFile(index.html);
-});
-
 // Routes
 app.use('/api', require('./routes/api'));
 
 // Static files
 app.use(express.static(__dirname + '/public'));
+
+app.get('/', (req,res) => {
+    res.sendFile('index.html');
+});
 
 // Server is listening
 app.listen(process.env.port || app.get('port'), () => {
