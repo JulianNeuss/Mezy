@@ -34,6 +34,8 @@ Vue.component('university', {
 })
 
 
+
+
 new Vue({
     el: '#app',
     vuetify: new Vuetify(),
