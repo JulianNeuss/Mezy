@@ -26,6 +26,9 @@ app.get('/', (req,res) => {
 });
 
 // Server is listening
-app.listen(process.env.port || app.get('port'), () => {
-    console.log('Server on port', app.get('port'));
-})
+// app.listen(process.env.port || app.get('port'), () => {
+//     console.log('Server on port', app.get('port'));
+// })
+
+
+app.listen(process.env.PORT || 5000)
