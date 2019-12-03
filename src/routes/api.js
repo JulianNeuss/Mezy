@@ -4,9 +4,10 @@ module.exports = router;
 const Country = require('../models/country');
 const Carreer = require('../models/carreer');
 const Course = require('../models/course');
+const Uni = require('../models/uni');
 
 // devuelve en json las materias correlativas que hay con una universidad 
-router.get('/course/uni/:id_uni/:id_carreer', function(req,res){
+router.get('/course/:id_uni/:id_carreer', function(req,res){
     const uni = parseInt(req.params.id_uni,10);
     const carreer = parseInt(req.params.id_carreer,10);
     Course.find({ "uni_id" : uni, "carrer_id" : carreer}, function(err, unis) { 
@@ -37,6 +38,19 @@ router.get('/countries.json', function(req,res){
             res.send("Se rompio todo.");
             next();
         }
-        res.end(JSON.stringify(country));
+        res.json(country);
     });
 });
+
+
+router.get('/carreers.json', function(req,res){
+    Carreer.find({}, function(err, carreer) { 
+        if(err) {
+            res.send("Se rompio todo.");
+            next();
+        }
+        res.json(carreer);
+    });
+});
+
+

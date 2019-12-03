@@ -31,20 +31,30 @@ Vue.component('selector', {
           this.carreras = false;
           this.selectedArea = id_area;
           this.countries = true;
+          console.log(id_area);
       },
       show_unis(id_country) {
           this.countries = false;
           this.selectedCountry = id_country;
           this.unis = true;
+          console.log(id_country);
       },
       show_subject(id_uni) {
           this.unis = false;
           this.selectedUni = id_uni;
           this.subjects = true;
+          console.log(id_uni);
       }
     }
   
 })
+
+
+
+
+
+
+
 
 Vue.component('parallax1', {
   template:
@@ -73,6 +83,13 @@ Vue.component('parallax1', {
        </section>`,
 
 }),
+
+
+
+
+
+
+
 Vue.component('howitworks', {
   template:
       `<section>
@@ -137,6 +154,14 @@ Vue.component('howitworks', {
       </section>`,
 
 }),
+
+
+
+
+
+
+
+
 Vue.component('news', {
 template:
     `<section>
@@ -182,6 +207,13 @@ template:
   }
 
 }),
+
+
+
+
+
+
+
 Vue.component('parallax2', {
   template:
       `<section>
@@ -203,6 +235,12 @@ Vue.component('parallax2', {
          </section>`,
 
 }),
+
+
+
+
+
+
 
 Vue.component('aboutcontact', {
   template:
@@ -260,11 +298,19 @@ Vue.component('aboutcontact', {
     </section>`,
 
 }),
+
+
+
+
+
+
+
+
   Vue.component('countryzone', {
       template: `<div>
-              <v-btn icon href="selector.html" >
+              <!-- <v-btn icon href="selector.html" >
                   <v-icon large> arrow_back_ios </v-icon>
-              </v-btn>
+              </v-btn> -->
 
               <p class="display-2 font-weight-medium" align="center">SELECT COUNTRY</p>
               <br/>
@@ -286,7 +332,7 @@ Vue.component('aboutcontact', {
                   <v-col v-for="country in countries" :key="country.name"  cols="12" md="3" >
                       <v-card flat height="200" type="button" > 
                           
-                          <v-img :src="country.src" @click="send_end(1)" height="170"> </v-img>
+                          <v-img :src="country.src" @click="send_end(country.id)" height="170"> </v-img>
                           <h4  align="center"> {{country.name}}</h4>
                       </v-card>
                   </v-col>
@@ -294,7 +340,7 @@ Vue.component('aboutcontact', {
               
               <br/>
 
-              <!--  
+              <!--  TODO comentado por que ya no lo necesitamos mas
               <v-row>
                       <v-col v-show="show == false">
                           <div class="text-center">
@@ -353,11 +399,15 @@ Vue.component('aboutcontact', {
 
 
 
+
+
+
+
   Vue.component('areazone', {
       template: `<div>
-              <v-btn icon href="../index.html" >
+              <!-- <v-btn icon href="../index.html" >
                   <v-icon large> arrow_back_ios </v-icon>
-              </v-btn>
+              </v-btn> -->
 
               <p class="display-2 font-weight-medium" align="center">CHOOSE AREA</p>
               <br/>
@@ -365,7 +415,7 @@ Vue.component('aboutcontact', {
                   <v-col v-for="career in careers" :key="career.name"  cols="12" md="3" >
                       <v-card flat height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
                           
-                          <v-img :src="career.src" @click="send_end(1)" height="170"> </v-img>
+                          <v-img :src="career.src" @click="send_end(career.id)" height="170"> </v-img>
                           <h4  align="center"> {{career.name}}</h4>
                       </v-card>
                   </v-col>
@@ -374,18 +424,23 @@ Vue.component('aboutcontact', {
           </div>`,
       data() {
           return {
-              careers: [
-                  { name: 'Software Engineer', src:'../assets/software.jpg', id:1},
-                  { name: 'Mechanical Engineer', src:'../assets/mechanical.jpeg', id:2},
-                  { name: 'Industrial Engineer', src:'../assets/cds-industrial-engineering.jpg', id:3},
-                  { name: 'Navy Engineer', src:'../assets/navy.jpg', id:4},
-                  { name: 'Chemical Engineer', src:'../assets/chemical.jpg', id:5},
-                  { name: 'Civil Engineer', src:'../assets/civil.jpg', id:6},
-                  { name: 'Bio Engineer', src:'../assets/bio.png', id:7},
-                  { name: 'Oil Engineer', src:'../assets/petroleo.jpg', id:8}
-              ]
+              careers: [ ]
           }
       },
+
+      mounted: function() {
+          let $vm = this;
+          fetch('http://localhost:3000/api/carreers.json').then(function(response) {
+              return response.json();
+          })
+              .then(function(myJson) {
+                  for(let i of myJson){
+                      $vm.careers.push({id: i.id, name: i.name, src: i.src});
+                  }
+                  console.log($vm.careers);
+              });
+      },
+
       methods: {
           send_end(id) {
               this.$emit('end',id);
@@ -395,17 +450,22 @@ Vue.component('aboutcontact', {
   }),
 
 
+
+
+
+
+
   Vue.component('university', {
       template: `<div>
-              <v-btn icon href="country.html" >
+              <!-- <v-btn icon href="country.html" >
                   <v-icon large> arrow_back_ios </v-icon>
-              </v-btn>
-
+              </v-btn> -->
+ 
               <p class="display-2 font-weight-medium" align="center">AVAILABLE UNIVERSITIES</p>
               <br/>
               <v-row>
                   <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3">
-                          <v-img :src="flag.src" class='imgRedonda' @click=send_end(1) type="button"> </v-img>
+                          <v-img :src="flag.src"  @click=send_end(1) type="button" height="170" width="170" color="rgb(255, 0, 0, 0.2)"> </v-img>
                           <h4  align="center"> {{flag.country}}</h4>
                   </v-col>
               </v-row>
@@ -419,30 +479,21 @@ Vue.component('aboutcontact', {
       data() {
           return {
               show: false,
-              germanyUni: [ ],
-              flags: [
-                  { country: 'Wuhan University', src:'../assets/Wuhan.png'},
-                  { country: 'Beijing Institute of T.', src:'../assets/Beijing_Institute_of_Technology.png'},
-                  { country: 'Nanjing University', src:'../assets/Nanjing_University_Logo.png'},
-                  { country: 'South China University', src:'../assets/south_china.jpeg'},
-                  { country: 'Shandong University', src:'../assets/shandong.png'},
-                  { country: 'Peking University', src:'../assets/peking.png'},
-                  { country: 'Shanghai University', src:'../assets/shanghai.png'},
-                  { country: 'Tsinghua University', src:'../assets/Tsinghua University.png'}
-              ]
+              flags: [ ]
           }
       },
 
       mounted: function() {
           let $vm = this;
-          fetch('http://localhost:3000/api/uni/1').then(function(response) {
+          let $country_id = this.country_id
+          fetch('http://localhost:3000/api/uni/' + $country_id).then(function(response) {
               return response.json();
           })
               .then(function(myJson) {
                   for(let i of myJson){
-                      $vm.germanyUni.push({id: i.id, name: i.name});
+                      $vm.flags.push({id: i.id, name: i.name, src: i.src});
                   }
-                  console.log($vm.germanyUni);
+                  console.log($vm.flags);
               });
       },
       methods: {
@@ -454,12 +505,17 @@ Vue.component('aboutcontact', {
 
 
 
+
+  
+
+
+
   Vue.component('showsubjects', {
 
       template: `<div>
-              <v-btn icon href="university.html" >
+              <!-- <v-btn icon href="university.html" >
                   <v-icon large> arrow_back_ios </v-icon>
-              </v-btn>
+              </v-btn> -->
 
               <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSE</p>
               <br/>
@@ -475,10 +531,10 @@ Vue.component('aboutcontact', {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="countrys in flags" :key="countrys.country">
-                        <td class="text-center">{{ countrys.country }}</td>
-                        <td class="text-center">{{ countrys.id }}</td>
-                        <td class="text-center">{{ countrys.algo }}</td>
+                      <tr v-for="course in courses" :key="course.materia_itba">
+                        <td class="text-center">{{ course.materia_itba }}</td>
+                        <td class="text-center">{{ course.materia_externa }}</td>
+                        <td class="text-center">{{ course.status }}</td>
                       </tr>
                     </tbody>
                   </template>
@@ -493,28 +549,26 @@ Vue.component('aboutcontact', {
       data() {
           return {
               show: false,
-              flags: [
-                  { country: 'Germany', src:'../assets/germany.svg', id:1 , algo:'Hola'},
-                  { country: 'Australia', src: '../assets/australia.svg', id:2, algo:'Hola'},
-                  { country: 'Austria', src:'../assets/austria.png' , id:3 , algo:'Hola'},
-                  { country: 'Belgium', src:'../assets/belgium.png', id:4, algo:'Hola'},
-                  { country: 'Brazil', src:'../assets/brazil.png', id:5, algo:'Hola'},
-                  { country: 'Chile', src:'../assets/chile.png', id:6, algo:'Hola'},
-                  { country: 'China', src:'../assets/china.png', id:7, algo:'Hola'},
-                  { country: 'Colombia', src: '../assets/colombia.png', id:8, algo:'Hola'},
-                  { country: 'France', src:'../assets/france.png', id: 14, algo:'Hola'},
-                  { country: 'Netherland', src:'../assets/netherland.png', id:15, algo:'Hola'},
-                  { country: 'Indonesia', src: '../assets/indonesia.png', id:16, algo:'Hola'},
-                  { country: 'Israel', src: '../assets/israel.png', id:17, algo:'Hola'},
-                  { country: 'Italy', src:'../assets/italy.svg', id:18, algo:'Hola'},
-                  { country: 'Malaysia', src:'../assets/malaysia.png', id:19, algo:'Hola'},
-                  { country: 'Mexico', src:'../assets/mexico.png', id:20, algo:'Hola'},
-                  { country: 'Norway', src:'../assets/norway.png', id:21, algo:'Hola'},
-              ]
+              courses: [ ]
           }
-      }
+      },
+      mounted: function() {
+        let $vm = this;
+        let $uni_id = this.uni_id;
+        let $area_id = this.area_id;
+        fetch('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id).then(function(response) {
+            return response.json();
+        })
+            .then(function(myJson) {
+                for(let i of myJson){
+                    $vm.courses.push({extern: i.materia_externa, itba: i.materia_itba, status: i.Estado});
+                }
+                console.log($vm.courses);
+            });
+    },
 
   })
+
 
 new Vue({
   el: '#app',
