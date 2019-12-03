@@ -378,7 +378,7 @@ Vue.component('aboutcontact', {
       },
       mounted: function() {
           let $vm = this;
-          fetch('http://mezy.herokuapp.com/api/countries.json').then(function(response) {
+          fetch('https://mezy.herokuapp.com/api/countries.json').then(function(response) {
               return response.json();
           })
               .then(function(myJson) {
@@ -430,7 +430,7 @@ Vue.component('aboutcontact', {
 
       mounted: function() {
           let $vm = this;
-          let $url = 'http://mezy.herokuapp.com/api/carreers.json';
+          let $url = 'https://mezy.herokuapp.com/api/carreers.json';
           fetch($url).then(function(response) {
               return response.json();
           })
@@ -490,7 +490,7 @@ Vue.component('aboutcontact', {
       mounted: function() {
           let $vm = this;
           let $country_id = this.country_id;
-          fetch('http://mezy.herokuapp.com/api/uni/' + $country_id).then(function(response) {
+          fetch('https://mezy.herokuapp.com/api/uni/' + $country_id).then(function(response) {
               return response.json();
           })
               .then(function(myJson) {
@@ -561,8 +561,8 @@ Vue.component('aboutcontact', {
         let $vm = this;
         let $uni_id = this.uni_id;
         let $area_id = this.area_id;
-        console.log('http://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id);
-        fetch('http://mezy.herokuapp.com/api/course/' + $uni_id + '/' + 3).then(function(response) {
+        console.log('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id);
+        fetch('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + 3).then(function(response) {
             return response.json();
         })
             .then(function(myJson) {
