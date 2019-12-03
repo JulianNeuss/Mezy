@@ -4,26 +4,22 @@ module.exports = router;
 const mongoose= require('mongoose');
 const Uni = require('../models/uni');
 const Country = require('../models/country');
+const Carreer = require('../models/carreer');
+const Course = require('../models/course');
 
 // devuelve en json las materias correlativas que hay con una universidad 
-router.get('/course/uni/:id', function(req,res){
-   
+router.get('/course/uni/:id_uni/:id_carreer', function(req,res){
+    const uni = parseInt(req.params.id_uni,10);
+    const carreer = parseInt(req.params.id_carreer,10);
+    Course.find({ "uni_id" : uni, "carrer_id" : carreer}, function(err, unis) { 
+        if(err) {
+            res.send("Se rompio todo.");
+            next();
+        }
+        res.json(unis);
+    });
 });
 
-// devuelve info de una materia
-router.get('/course/:id', function(req,res){
-
-});
-
-// crear nueva materia
-router.post('/course', function(req,res){
-
-});
-
-// modificar info de una materia
-router.put('/course/:id', function(req,res) {
-
-});
 
 // univesidades de un pais.
 router.get('/uni/:id_country', function(req,res) {
