@@ -48,8 +48,9 @@ Vue.component('countryzone', {
                 
              
             </div>`,
-    data(){
+    data: function(){
         return {
+            countries: [ ],
             show: false,
             flags: [
                 { country: 'Germany', src:'../assets/germany.svg', id:1},
@@ -84,16 +85,17 @@ Vue.component('countryzone', {
                 { country: 'Czech Republic', src:'../assets/czechRepublic.png', id:28},
 
             ],
-            countries: [ ]
+            
         }
     },
     mounted: function() {
+        let $vm = this;
         fetch('http://localhost:3000/api/countries.json').then(function(response) {
             return response.json();
           })
           .then(function(myJson) {
             for(let i of myJson){
-                this.countries.push({id: i.id, name: i.name});
+                $vm.countries.push({id: i.id, name: i.name});
             }
           });
     },
