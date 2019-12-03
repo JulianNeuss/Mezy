@@ -43,6 +43,6 @@ router.get('/countries', function(req,res){
             res.send("Se rompio todo.");
             next();
         }
-        res.json(country);
+        res.end(JSON.stringify(country));
     });
 });
