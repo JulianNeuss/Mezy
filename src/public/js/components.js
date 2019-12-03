@@ -88,12 +88,14 @@ Vue.component('countryzone', {
         }
     },
     mounted: function() {
-        fetch('http://localhost:3000/api/countries').then( r => {
-            console.log(r.json());
-            for(let i of r.result){
+        fetch('http://localhost:3000/api/countries.json').then(function(response) {
+            return response.json();
+          })
+          .then(function(myJson) {
+            for(let i of myJson){
                 this.countries.push({id: i.id, name: i.name});
             }
-        })
+          });
     },
 
     methods:{
