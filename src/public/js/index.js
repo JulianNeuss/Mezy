@@ -574,6 +574,7 @@ Vue.component('aboutcontact', {
                 }
                 console.log($vm.courses);
             });
+        console.log('probando');
     }
   })
 
