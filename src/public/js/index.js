@@ -268,6 +268,8 @@ Vue.component('aboutcontact', {
 
               <p class="display-2 font-weight-medium" align="center">SELECT COUNTRY</p>
               <br/>
+              
+              <!-- Viejo: sin conexion con la api
               <v-row>
                   <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3" >
                       <v-card flat height="200" type="button" > 
@@ -277,8 +279,9 @@ Vue.component('aboutcontact', {
                       </v-card>
                   </v-col>
               </v-row>
+              -->
               
-              <!-- TODO: este es con la llamada a la api  
+              
               <v-row>
                   <v-col v-for="country in countries" :key="country.name"  cols="12" md="3" >
                       <v-card flat height="200" type="button" > 
@@ -287,11 +290,11 @@ Vue.component('aboutcontact', {
                           <h4  align="center"> {{country.name}}</h4>
                       </v-card>
                   </v-col>
-              </v-row> -->
+              </v-row> 
               
               <br/>
 
-             
+              <!--  
               <v-row>
                       <v-col v-show="show == false">
                           <div class="text-center">
@@ -303,7 +306,7 @@ Vue.component('aboutcontact', {
               </v-row>
               <v-row>
                   <v-col v-show="show" v-for="more in moreflags" :key="more.country"  cols="12" md="3" >
-                      <v-card flat height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
+                      <v-card flat height="200" type="button" >  
                           
                           <v-img :src="more.src" height="170"> </v-img>
                           <h4  align="center"> {{more.country}}</h4>
@@ -316,7 +319,7 @@ Vue.component('aboutcontact', {
                               <v-btn x-large color="primary" @click="show= !show">LESS COUNTRY'S</v-btn>
                           </div>
                       </v-col>
-              </v-row>
+              </v-row> -->
               
               
            
@@ -324,41 +327,7 @@ Vue.component('aboutcontact', {
       data: function(){
           return {
               countries: [ ],
-              show: false,
-              flags: [
-                  { country: 'Germany', src:'../assets/germany.svg', id:1},
-                  { country: 'Australia', src: '../assets/australia.svg', id:2},
-                  { country: 'Austria', src:'../assets/austria.png' , id:3 },
-                  { country: 'Belgium', src:'../assets/belgium.png', id:4},
-                  { country: 'Brazil', src:'../assets/brazil.png', id:5},
-                  { country: 'Chile', src:'../assets/chile.png', id:6},
-                  { country: 'China', src:'../assets/china.png', id:7},
-                  { country: 'Colombia', src: '../assets/colombia.png', id:8}
-              ],
-              moreflags: [
-                  { country: 'South Korea', src:'../assets/korea.png', id:9},
-                  { country: 'Denmark', src:'../assets/denmark.png',id:10},
-                  { country: 'Spain', src:'../assets/spain.png' , id:11},
-                  { country: 'USA', src:'../assets/USA.png', id:12},
-                  { country: 'Finland', src:'../assets/finland.png', id:13},
-                  { country: 'France', src:'../assets/france.png', id: 14},
-                  { country: 'Netherland', src:'../assets/netherland.png', id:15},
-                  { country: 'Indonesia', src: '../assets/indonesia.png', id:16},
-                  { country: 'Israel', src: '../assets/israel.png', id:17},
-                  { country: 'Italy', src:'../assets/italy.svg', id:18},
-                  { country: 'Malaysia', src:'../assets/malaysia.png', id:19},
-                  { country: 'Mexico', src:'../assets/mexico.png', id:20},
-                  { country: 'Norway', src:'../assets/norway.png', id:21},
-                  { country: 'New Zealand', src:'../assets/newZealand.png', id:22},
-                  { country: 'Panama', src:'../assets/panama.png', id:23},
-                  { country: 'Portugal', src:'../assets/portugal.png', id:24},
-                  { country: 'United Kingdom', src:'../assets/UK.png', id:25},
-                  { country: 'Singapore', src:'../assets/singapore.png', id:26},
-                  { country: 'Sweden', src:'../assets/sweden.png', id:27},
-                  { country: 'Czech Republic', src:'../assets/czechRepublic.png', id:28},
-
-              ],
-
+              show: false
           }
       },
       mounted: function() {
@@ -368,7 +337,7 @@ Vue.component('aboutcontact', {
           })
               .then(function(myJson) {
                   for(let i of myJson){
-                      $vm.countries.push({id: i.id, name: i.name});
+                      $vm.countries.push({id: i.id, name: i.name, src: i.src});
                   }
                   console.log($vm.countries);
               });
