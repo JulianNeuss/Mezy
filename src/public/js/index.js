@@ -557,7 +557,7 @@ Vue.component('aboutcontact', {
       data() {
           return {
               show: false,
-              available: false,
+              available: true,
               courses: [ ]
           }
       },
@@ -574,8 +574,8 @@ Vue.component('aboutcontact', {
                 }
                 console.log($vm.courses);
             });
-        if(this.courses.length !== 0){
-            this.available = true;
+        if(this.courses.$isEmpty){
+            this.available = false;
         }
     }
   })
