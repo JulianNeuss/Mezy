@@ -8,7 +8,7 @@ mongoose.connect('mongodb://165.22.41.30:27017/mezy-db')
     .catch(err =>console.error(err));
 
 // Settings
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 
 // Middlewares
 app.use(morgan('dev'));
@@ -30,7 +30,7 @@ app.get('/', (req,res) => {
 });
 
 // Server is listening
-app.listen(process.env.port || app.get('port'), () => {
+app.listen( app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 })
 
