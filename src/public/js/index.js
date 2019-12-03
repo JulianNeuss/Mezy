@@ -525,7 +525,7 @@ Vue.component('aboutcontact', {
               <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSE</p>
               <br/>
              
-              <v-simple-table fixed-header height="500px" v-if="available">
+              <v-simple-table fixed-header height="500px" v-if="courses.length === 0">
                       <template v-slot:default>
                         <thead>
                           <tr>
@@ -557,7 +557,6 @@ Vue.component('aboutcontact', {
       data() {
           return {
               show: false,
-              available: true,
               courses: [ ]
           }
       },
@@ -574,10 +573,6 @@ Vue.component('aboutcontact', {
                 }
                 console.log($vm.courses);
             });
-        console.log('courses length:' + this.courses.length);
-        if(this.courses.length === 0){
-            this.available = false;
-        }
     }
   })
 
