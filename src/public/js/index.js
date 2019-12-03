@@ -546,8 +546,6 @@ Vue.component('aboutcontact', {
               
               <br/>
               <br/>
-              <br/>
-              <br/>
               
               
               <div v-else>
