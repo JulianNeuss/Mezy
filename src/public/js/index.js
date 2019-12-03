@@ -378,7 +378,7 @@ Vue.component('aboutcontact', {
       },
       mounted: function() {
           let $vm = this;
-          fetch('http://localhost:3000/api/countries.json').then(function(response) {
+          fetch('https://mezy.herokuapp.com/api/countries.json').then(function(response) {
               return response.json();
           })
               .then(function(myJson) {
@@ -430,7 +430,7 @@ Vue.component('aboutcontact', {
 
       mounted: function() {
           let $vm = this;
-          let $url = 'http://localhost:3000/api/carreers.json';
+          let $url = 'https://mezy.herokuapp.com/api/carreers.json';
           fetch($url).then(function(response) {
               return response.json();
           })
@@ -469,8 +469,8 @@ Vue.component('aboutcontact', {
               <br/>
               <v-row>
                   <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3">
-                          <v-img :src="flag.src"  @click=send_end(flag.id) type="button" height="250" width="250"> </v-img>
-                          <h4 max_width:100px  align="center"> {{flag.name}}</h4>
+                    <v-img :src="flag.src"  @click=send_end(flag.id) type="button" height="250" width="250"> </v-img>
+                    <h4 max_width:100px  align="center"> {{flag.name}}</h4>
                   </v-col>
               </v-row>
               
@@ -490,7 +490,7 @@ Vue.component('aboutcontact', {
       mounted: function() {
           let $vm = this;
           let $country_id = this.country_id;
-          fetch('http://localhost:3000/api/uni/' + $country_id).then(function(response) {
+          fetch('https://mezy.herokuapp.com/api/uni/' + $country_id).then(function(response) {
               return response.json();
           })
               .then(function(myJson) {
@@ -500,6 +500,7 @@ Vue.component('aboutcontact', {
                   console.log($vm.flags);
               });
       },
+      
       methods: {
           send_end(id) {
               this.$emit('end',id);
@@ -560,8 +561,8 @@ Vue.component('aboutcontact', {
         let $vm = this;
         let $uni_id = this.uni_id;
         let $area_id = this.area_id;
-        console.log('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id);
-        fetch('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id).then(function(response) {
+        console.log('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id);
+        fetch('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + 3).then(function(response) {
             return response.json();
         })
             .then(function(myJson) {
