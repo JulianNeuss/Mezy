@@ -574,7 +574,8 @@ Vue.component('aboutcontact', {
                 }
                 console.log($vm.courses);
             });
-        if(this.courses.$isEmpty){
+        console.log('courses length:' + this.courses.length);
+        if(this.courses.length === 0){
             this.available = false;
         }
     }
