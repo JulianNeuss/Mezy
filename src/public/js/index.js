@@ -545,7 +545,7 @@ Vue.component('aboutcontact', {
               </v-simple-table> 
               
               <div v-else>
-                    <p> NO COURSES AVAILABLE</p>
+                    <p class="display-2 font-weight-medium" style="color:red" align="center"> NO COURSES AVAILABLE</p>
               </div>
 
            
