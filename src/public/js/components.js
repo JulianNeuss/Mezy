@@ -1,11 +1,11 @@
 Vue.component('selector', {
     template: `<div>
 
-    <areazone v-if="carreras" />
+    <areazone @end="show_countries" v-if="carreras" />
     <div v-else>
-    <countryzone v-if="countries" />
+    <countryzone @end="show_unis" v-if="countries" />
     <div v-else>
-        <university country_id="selectedCountry" />
+        <university :country_id="selectedCountry" />
     </div>
     </div>
  
@@ -15,12 +15,23 @@ Vue.component('selector', {
             show: false,
             carreras: true,
             countries: false,
+            unis:false,
+            selectedArea: 1,
             selectedCountry: 1
         }
     },
 
     methods:{  
-
+        show_countries(id_area) {
+            this.carreras = false;
+            this.selectedArea = id_area;
+            this.countries = true;
+        },
+        show_unis(id_country) {
+            this.countries = false;
+            this.selectedCountry = id_country;
+            this.unis = true;
+        }
       }
     
 })
@@ -37,7 +48,7 @@ Vue.component('countryzone', {
                     <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3" >
                         <v-card flat height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
                             
-                            <v-img :src="flag.src" height="170"> </v-img>
+                            <v-img :src="flag.src"  @click="send_end(1)" height="170"> </v-img>
                             <h4  align="center"> {{flag.country}}</h4>
                         </v-card>
                     </v-col>
@@ -113,16 +124,9 @@ Vue.component('countryzone', {
             ]
         }
     },
-
-    methods:{
-        fetch_country() {
-            fetch('http://localhost:3000/api/uni/1')
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(myJson) {
-                    console.log(myJson);
-                });
+    methods: {
+        send_end(id) {
+            this.$emit('end',id);
         }
     }
     
@@ -143,7 +147,7 @@ Vue.component('countryzone', {
                     <v-col v-for="career in careers" :key="career.name"  cols="12" md="3" >
                         <v-card flat height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
                             
-                            <v-img :src="career.src" height="170"> </v-img>
+                            <v-img :src="career.src" @click="send_end(1)" height="170"> </v-img> // END TIENE QUE MANDAR EL CAREER ID.
                             <h4  align="center"> {{career.name}}</h4>
                         </v-card>
                     </v-col>
@@ -162,6 +166,11 @@ Vue.component('countryzone', {
                 { name: 'Bio Engineer', src:'../assets/bio.png'},
                 { name: 'Oil Engineer', src:'../assets/petroleo.jpg'}
             ]
+        }
+    },
+    methods: {
+        send_end(id) {
+            this.$emit('end',id);
         }
     }
 })
@@ -185,6 +194,7 @@ Vue.component('university', {
              
             </div>`,
     props: {  
+       country_id: Number 
        },
     data() {
         return {
