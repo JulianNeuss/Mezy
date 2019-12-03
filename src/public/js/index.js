@@ -532,8 +532,8 @@ Vue.component('aboutcontact', {
                     </thead>
                     <tbody>
                       <tr v-for="course in courses" :key="course.materia_itba">
-                        <td class="text-center">{{ course.materia_itba }}</td>
-                        <td class="text-center">{{ course.materia_externa }}</td>
+                        <td class="text-center">{{ course.itba }}</td>
+                        <td class="text-center">{{ course.extern }}</td>
                         <td class="text-center">{{ course.status }}</td>
                       </tr>
                     </tbody>
@@ -557,7 +557,7 @@ Vue.component('aboutcontact', {
         let $uni_id = this.uni_id;
         let $area_id = this.area_id;
         console.log('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id);
-        fetch('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id).then(function(response) {
+        fetch('http://localhost:3000/api/course/' + $uni_id + '/' + 3).then(function(response) {
             return response.json();
         })
             .then(function(myJson) {
