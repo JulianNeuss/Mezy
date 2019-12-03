@@ -430,7 +430,7 @@ Vue.component('aboutcontact', {
 
       mounted: function() {
           let $vm = this;
-          let $url = 'http://localhost:' + process.env.PORT + '/api/carreers.json';
+          let $url = 'http://localhost:3000/api/carreers.json';
           fetch($url).then(function(response) {
               return response.json();
           })
