@@ -7,7 +7,7 @@ Vue.component('selector', {
   <div v-else>
       <university :country_id="selectedCountry" @end="show_subject" v-if="unis" />
       <div v-else>
-      <showsubjects :uni_id="selectedUni" :career_id="selectedArea" />
+      <showsubjects :uni_id="selectedUni" :area_id="selectedArea" />
       </div>
   </div>
   </div>
@@ -443,6 +443,9 @@ Vue.component('aboutcontact', {
 
       methods: {
           send_end(id) {
+              console.log("carreer.id es: " );
+              console.log(id);
+              console.log(" " );
               this.$emit('end',id);
           }
       }
