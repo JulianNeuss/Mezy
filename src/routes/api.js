@@ -37,7 +37,7 @@ router.get('/uni/:id_country', function(req,res) {
     });
 });
 
-router.get('/countries', function(req,res){
+router.get('/countries.json', function(req,res){
     Country.find({}, function(err, country) { 
         if(err) {
             res.send("Se rompio todo.");
