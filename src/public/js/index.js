@@ -375,14 +375,14 @@ Vue.component('aboutcontact', {
       data() {
           return {
               careers: [
-                  { name: 'Software Engineer', src:'../assets/software.jpg'},
-                  { name: 'Mechanical Engineer', src:'../assets/mechanical.jpeg'},
-                  { name: 'Industrial Engineer', src:'../assets/cds-industrial-engineering.jpg'},
-                  { name: 'Navy Engineer', src:'../assets/navy.jpg'},
-                  { name: 'Chemical Engineer', src:'../assets/chemical.jpg'},
-                  { name: 'Civil Engineer', src:'../assets/civil.jpg'},
-                  { name: 'Bio Engineer', src:'../assets/bio.png'},
-                  { name: 'Oil Engineer', src:'../assets/petroleo.jpg'}
+                  { name: 'Software Engineer', src:'../assets/software.jpg', id=1},
+                  { name: 'Mechanical Engineer', src:'../assets/mechanical.jpeg', id=2},
+                  { name: 'Industrial Engineer', src:'../assets/cds-industrial-engineering.jpg', id=3},
+                  { name: 'Navy Engineer', src:'../assets/navy.jpg', id=4},
+                  { name: 'Chemical Engineer', src:'../assets/chemical.jpg', id=5},
+                  { name: 'Civil Engineer', src:'../assets/civil.jpg', id=6},
+                  { name: 'Bio Engineer', src:'../assets/bio.png', id=7},
+                  { name: 'Oil Engineer', src:'../assets/petroleo.jpg', id=8}
               ]
           }
       },
