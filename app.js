@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/public'));
 // });
 
 app.get('/', (req,res) => {
-    res.sendFile('src/public/index.html');
+    res.sendFile('index.html');
 });
 
 // Server is listening
