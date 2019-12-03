@@ -465,7 +465,7 @@ Vue.component('aboutcontact', {
               <br/>
               <v-row>
                   <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3">
-                          <v-img :src="flag.src"  @click=send_end(1) type="button" height="170" width="170" color="rgb(255, 0, 0, 0.2)"> </v-img>
+                          <v-img :src="flag.src"  @click=send_end(flag.id) type="button" height="170" width="170" color="rgb(255, 0, 0, 0.2)"> </v-img>
                           <h4  align="center"> {{flag.country}}</h4>
                   </v-col>
               </v-row>
@@ -485,7 +485,7 @@ Vue.component('aboutcontact', {
 
       mounted: function() {
           let $vm = this;
-          let $country_id = this.country_id
+          let $country_id = this.country_id;
           fetch('http://localhost:3000/api/uni/' + $country_id).then(function(response) {
               return response.json();
           })

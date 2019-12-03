@@ -1,7 +1,7 @@
 Vue.component('toolbar', {
     template:
         `<v-toolbar color="white" dark  flat >
-                        <v-btn text color="black" href="../index.html">
+                        <v-btn text color="black" href="../html/selector.html">
                            MEZY
                         </v-btn>
                         <v-spacer></v-spacer> <!-- deja espacio entre el search y boton de  notificaciones y settings -->
