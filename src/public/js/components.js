@@ -1,3 +1,30 @@
+Vue.component('selector', {
+    template: `<div>
+
+    <areazone v-if="carreras" />
+    <div v-else>
+    <countryzone v-if="countries" />
+    <div v-else>
+        <university country_id="selectedCountry" />
+    </div>
+    </div>
+ 
+</div>`,
+    data() {
+        return {
+            show: false,
+            carreras: true,
+            countries: false,
+            selectedCountry: 1
+        }
+    },
+
+    methods:{  
+
+      }
+    
+})
+
 Vue.component('countryzone', {
     template: `<div>
                 <v-btn icon href="area.html" >
@@ -10,7 +37,7 @@ Vue.component('countryzone', {
                     <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3" >
                         <v-card flat height="200" type="button" >  <!-- hay que sacar height y ponerlo en un css-->
                             
-                            <v-img :src="flag.src" @click="fetch_country()" height="170"> </v-img>
+                            <v-img :src="flag.src" height="170"> </v-img>
                             <h4  align="center"> {{flag.country}}</h4>
                         </v-card>
                     </v-col>
@@ -157,6 +184,8 @@ Vue.component('university', {
                 <br/>
              
             </div>`,
+    props: {  
+       },
     data() {
         return {
             show: false,
