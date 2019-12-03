@@ -5,9 +5,10 @@ Vue.component('selector', {
   <div v-else>
   <countryzone @end="show_unis" v-if="countries" />
   <div v-else>
-      <university :country_id="selectedCountry" @end="show_subjects" v-if="universities" />
+      <university :country_id="selectedCountry" @end="show_subject" v-if="unis" />
       <div v-else>
-      <show_subjects :uni_id="selectedUni" :career_id="selectedArea">
+      <showsubjects :uni_id="selectedUni" :career_id="selectedArea" />
+      </div>
   </div>
   </div>
 
@@ -36,7 +37,7 @@ Vue.component('selector', {
           this.selectedCountry = id_country;
           this.unis = true;
       },
-      show_subjects(id_uni) {
+      show_subject(id_uni) {
           this.unis = false;
           this.selectedUni = id_uni;
           this.subjects = true;
