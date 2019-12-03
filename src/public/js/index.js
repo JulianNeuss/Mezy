@@ -522,7 +522,7 @@ Vue.component('aboutcontact', {
                   <v-icon large> arrow_back_ios </v-icon>
               </v-btn> -->
 
-              <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSE</p>
+              <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSES</p>
               <br/>
              
               <v-simple-table fixed-header height="500px" v-if="courses.length !== 0">
@@ -544,8 +544,14 @@ Vue.component('aboutcontact', {
                       </template>
               </v-simple-table> 
               
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              
+              
               <div v-else>
-                    <p class="display-2 font-weight-medium" style="color:red" align="center"> NO COURSES AVAILABLE</p>
+                    <p class="display-2 font-weight-thin" style="color:red" align="center"> NO COURSES AVAILABLE</p>
               </div>
 
            
