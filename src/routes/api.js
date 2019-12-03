@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 module.exports = router;
-const mongoose= require('mongoose');
-const Uni = require('../models/uni');
-const Country = require('../models/country');
 const Carreer = require('../models/carreer');
 const Course = require('../models/course');
 
