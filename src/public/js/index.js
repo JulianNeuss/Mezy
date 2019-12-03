@@ -63,7 +63,7 @@ Vue.component('parallax1', {
                       color="blue lighten-2"
                       dark
                       large
-                      href="html/area.html"
+                      href="html/selector.html"
                   >
                   Get Started
               </v-btn>
@@ -193,7 +193,7 @@ Vue.component('parallax2', {
               color="blue lighten-2"
               dark
               large
-              href="html/area.html"
+              href="html/selector.html"
                   >
                   Get Started
               </v-btn>
@@ -261,7 +261,7 @@ Vue.component('aboutcontact', {
 }),
   Vue.component('countryzone', {
       template: `<div>
-              <v-btn icon href="area.html" >
+              <v-btn icon href="selector.html" >
                   <v-icon large> arrow_back_ios </v-icon>
               </v-btn>
 
