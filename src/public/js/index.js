@@ -562,7 +562,7 @@ Vue.component('aboutcontact', {
         let $uni_id = this.uni_id;
         let $area_id = this.area_id;
         console.log('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id);
-        fetch('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + 3).then(function(response) {
+        fetch('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id).then(function(response) {
             return response.json();
         })
             .then(function(myJson) {
