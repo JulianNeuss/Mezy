@@ -561,7 +561,7 @@ Vue.component('aboutcontact', {
         let $uni_id = this.uni_id;
         let $area_id = this.area_id;
         console.log('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id);
-        fetch('http://localhost:3000/api/course/' + $uni_id + '/' + 3).then(function(response) {
+        fetch('http://localhost:3000/api/course/' + $uni_id + '/' + $area_id).then(function(response) {
             return response.json();
         })
             .then(function(myJson) {
