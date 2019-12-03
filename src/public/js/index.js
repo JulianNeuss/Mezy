@@ -525,25 +525,28 @@ Vue.component('aboutcontact', {
               <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSE</p>
               <br/>
              
+              <v-simple-table fixed-header height="500px" v-if="available">
+                      <template v-slot:default>
+                        <thead>
+                          <tr>
+                            <th class="text-center">ITBA's COURSE</th>
+                            <th class="text-center">FOREING EQUIVALENT COURSE</th>
+                            <th class="text-center">ACCEPTANCE STATUS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="course in courses" :key="course.materia_itba">
+                            <td class="text-center">{{ course.itba }}</td>
+                            <td class="text-center">{{ course.extern }}</td>
+                            <td class="text-center">{{ course.status }}</td>
+                          </tr>
+                        </tbody>
+                      </template>
+              </v-simple-table> 
               
-              <v-simple-table fixed-header height="500px">
-                  <template v-slot:default>
-                    <thead>
-                      <tr>
-                        <th class="text-center">ITBA's COURSE</th>
-                        <th class="text-center">FOREING EQUIVALENT COURSE</th>
-                        <th class="text-center">ACCEPTANCE STATUS</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="course in courses" :key="course.materia_itba">
-                        <td class="text-center">{{ course.itba }}</td>
-                        <td class="text-center">{{ course.extern }}</td>
-                        <td class="text-center">{{ course.status }}</td>
-                      </tr>
-                    </tbody>
-                  </template>
-               </v-simple-table> 
+              <div v-else>
+                    <p> NO COURSES AVAILABLE</p>
+              </div>
 
            
           </div>`,
@@ -554,6 +557,7 @@ Vue.component('aboutcontact', {
       data() {
           return {
               show: false,
+              available: false,
               courses: [ ]
           }
       },
@@ -561,7 +565,6 @@ Vue.component('aboutcontact', {
         let $vm = this;
         let $uni_id = this.uni_id;
         let $area_id = this.area_id;
-        console.log('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id);
         fetch('https://mezy.herokuapp.com/api/course/' + $uni_id + '/' + $area_id).then(function(response) {
             return response.json();
         })
@@ -571,8 +574,10 @@ Vue.component('aboutcontact', {
                 }
                 console.log($vm.courses);
             });
-    },
-
+        if(this.courses.length !== 0){
+            this.available = true;
+        }
+    }
   })
 
 
