@@ -469,8 +469,8 @@ Vue.component('aboutcontact', {
               <br/>
               <v-row>
                   <v-col v-for="flag in flags" :key="flag.country"  cols="12" md="3">
-                          <v-img :src="flag.src"  @click=send_end(flag.id) type="button" height="170" width="170" color="rgb(255, 0, 0, 0.2)"> </v-img>
-                          <h4  align="center"> {{flag.country}}</h4>
+                          <v-img :src="flag.src"  @click=send_end(flag.id) type="button" height="250" width="250"> </v-img>
+                          <h4 max_width:100px  align="center"> {{flag.name}}</h4>
                   </v-col>
               </v-row>
               
