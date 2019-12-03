@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.json()); 
 
 // Routes
-app.use('/api', require('./routes/api'));
+app.use('/api', require('./src/routes/api'));
 
 // Static files
 app.use(express.static(__dirname + '/public'));
