@@ -525,7 +525,7 @@ Vue.component('aboutcontact', {
               <p class="display-2 font-weight-medium" align="center">AVAILABLE COURSE</p>
               <br/>
              
-              <v-simple-table fixed-header height="500px" v-if="courses.length === 0">
+              <v-simple-table fixed-header height="500px" v-if="courses.length !== 0">
                       <template v-slot:default>
                         <thead>
                           <tr>
