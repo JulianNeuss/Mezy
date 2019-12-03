@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.json()); 
 
 // Routes
-app.use('/api', require('./routes/api'));
+app.use('/api', require('./src/routes/api'));
 
 // Static files
 app.use(express.static(__dirname + '/public'));
@@ -26,6 +26,9 @@ app.get('/', (req,res) => {
 });
 
 // Server is listening
-app.listen(process.env.port || app.get('port'), () => {
-    console.log('Server on port', app.get('port'));
-})
+// app.listen(process.env.port || app.get('port'), () => {
+//     console.log('Server on port', app.get('port'));
+// })
+
+
+app.listen(process.env.PORT || 5000);

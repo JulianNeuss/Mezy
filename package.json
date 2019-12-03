@@ -4,8 +4,8 @@
   "description": "Ingenieria de Software",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "mezy",
@@ -24,5 +24,5 @@
   "bugs": {
     "url": "https://github.com/JulianNeuss/Mezy/issues"
   },
-  "homepage": "https://github.com/JulianNeuss/Mezy#readme",
+  "homepage": "https://github.com/JulianNeuss/Mezy#readme"
 }
