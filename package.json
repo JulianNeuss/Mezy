@@ -2,10 +2,10 @@
   "name": "mezy",
   "version": "1.0.0",
   "description": "Ingenieria de Software",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "mezy",
